@@ -6,14 +6,9 @@ import { EditFormField } from "./EditFormField";
 uuidv4();
 
 export const Formwrapper = () => {
-  const [tasks, setTasks] = React.useState([
-    {
-      id: uuidv4(),
-      taskName: "default",
-      completed: false,
-      isEditing: false,
-    },
-  ]);
+  const [tasks, setTasks] = React.useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
   const addTasks = (task) => {
     setTasks([
@@ -42,6 +37,7 @@ export const Formwrapper = () => {
       })
     );
   };
+
   const deleteTask = (id) => {
     setTasks(
       tasks.filter((task) => {
@@ -49,6 +45,7 @@ export const Formwrapper = () => {
       })
     );
   };
+
   const editTask = (taskName, id) => {
     setTasks(
       tasks.map((task) =>
@@ -58,6 +55,20 @@ export const Formwrapper = () => {
       )
     );
   };
+
+  // const getTasks = () => {
+  //   let savedTasks = JSON.parse(localStorage.getItem("todos"));
+  //   if (savedTasks) {
+  //     setTasks(savedTasks);
+  //   }
+  // };
+
+  // React.useEffect(() => getTasks(), []);
+
+  React.useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div className="form-wrapper">
       <h1>Just Do It!</h1>
