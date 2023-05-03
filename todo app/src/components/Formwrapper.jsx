@@ -9,7 +9,7 @@ export const Formwrapper = () => {
     {
       id: uuidv4(),
       taskName: "default",
-      completed: true,
+      completed: false,
       isEditing: false,
     },
   ]);
@@ -29,23 +29,22 @@ export const Formwrapper = () => {
   const toggleCompleted = (id) => {
     setTasks(
       tasks.map((task) => {
-        task.id === id ? { ...tasks, completed: !task.completed } : tasks;
+        return task.id === id ? { ...task, completed: !task.completed } : task;
       })
     );
-    console.log(id);
   };
-
+  console.log(tasks);
   return (
     <div className="form-wrapper">
       <FormField addTasks={addTasks} />
       {tasks.map((task, index) => {
         return (
           <Tasks
-            id={task.id}
-            toggleCompleted={toggleCompleted}
-            completed={task.completed}
             taskName={task.taskName}
             key={index}
+            completed={task.completed}
+            id={task.id}
+            toggleCompleted={toggleCompleted}
           />
         );
       })}
