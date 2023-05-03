@@ -44,7 +44,7 @@ input.task-input {
 }
 
 button.add-task {
-  min-width: 80px;
+  min-width: fit-content;
   padding: 5px;
   background-color: orange;
   border: none;

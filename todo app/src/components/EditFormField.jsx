@@ -1,15 +1,16 @@
 import React from "react";
 
-export const FormField = ({ addTasks }) => {
-  const [value, setValue] = React.useState("");
+export const EditFormField = (props) => {
+  const [value, setValue] = React.useState(props.taskName);
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value) {
-      addTasks(value);
-      setValue("");
+      props.editTask(value, props.id);
+      console.log(props.id);
     }
   };
 
+  console.log(props);
   return (
     <div>
       <div className="input-task">
@@ -18,11 +19,11 @@ export const FormField = ({ addTasks }) => {
             value={value}
             type="text"
             className="task-input"
-            placeholder="what would you like to do?"
+            placeholder="Update task"
             onChange={(event) => setValue(event.target.value)}
           ></input>
           <button type="submit" className="add-task">
-            Add Task
+            Update Task
           </button>
         </form>
       </div>

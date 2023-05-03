@@ -11,7 +11,10 @@ export const Tasks = (props) => {
         {props.taskName}
       </p>
       <div className="icons">
-        <FontAwesomeIcon icon={faPenToSquare} />
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          onClick={() => props.toggleEditing(props.id)}
+        />
         <FontAwesomeIcon
           icon={faTrash}
           onClick={() => props.deleteTask(props.id)}
