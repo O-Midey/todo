@@ -33,7 +33,15 @@ export const Formwrapper = () => {
       })
     );
   };
-  console.log(tasks);
+
+  const deleteTask = (id) => {
+    setTasks(
+      tasks.filter((task) => {
+        return task.id !== id;
+      })
+    );
+  };
+
   return (
     <div className="form-wrapper">
       <FormField addTasks={addTasks} />
@@ -45,6 +53,7 @@ export const Formwrapper = () => {
             completed={task.completed}
             id={task.id}
             toggleCompleted={toggleCompleted}
+            deleteTask={deleteTask}
           />
         );
       })}
