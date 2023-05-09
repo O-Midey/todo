@@ -56,15 +56,6 @@ export const Formwrapper = () => {
     );
   };
 
-  // const getTasks = () => {
-  //   let savedTasks = JSON.parse(localStorage.getItem("todos"));
-  //   if (savedTasks) {
-  //     setTasks(savedTasks);
-  //   }
-  // };
-
-  // React.useEffect(() => getTasks(), []);
-
   React.useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);

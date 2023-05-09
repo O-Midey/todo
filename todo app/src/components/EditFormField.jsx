@@ -10,7 +10,6 @@ export const EditFormField = (props) => {
     }
   };
 
-  console.log(props);
   return (
     <div>
       <div className="input-task">
