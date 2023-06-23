@@ -13,7 +13,7 @@ body {
 }
 
 .form-wrapper {
-  max-width: 60%;
+  width: 80%;
   border: 3px solid orange;
   background-color: transparent;
   margin: auto auto;

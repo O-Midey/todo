@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export const Tasks = (props) => {
   return (
     <motion.div
-      animate={{ scale: 1.05 }}
+      animate={{ scale: 1.01 }}
       className={props.completed ? "task-wrapper completed" : "task-wrapper "}
     >
       <p className="task-name" onClick={() => props.toggleCompleted(props.id)}>
