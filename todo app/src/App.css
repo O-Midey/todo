@@ -63,6 +63,10 @@ button.add-task {
   padding: 8px;
 }
 
+.task-name {
+  font-size: 10px !important;
+}
+
 div.icons {
   display: flex;
   justify-content: space-between;
